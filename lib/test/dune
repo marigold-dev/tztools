@@ -1,0 +1,4 @@
+(test
+ (name tztools_test)
+ (package tztools)
+ (libraries alcotest tztools.lib))

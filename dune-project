@@ -13,6 +13,7 @@
  (synopsis "TzTools")
  (description "TzTool")
  (depends
+  (alcotest :with-test)
   (dune
    (and
     :build

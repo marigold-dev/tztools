@@ -30,13 +30,6 @@ let test () =
 (* Tezos_crypto.Base58.check_encoded_prefix b58check_encoding "B" 51 *)
 (* Hex.to_string hex_result *)
 
-let block_hash_converter_of_string str =
-  let hex = `Hex str in
-  let binary = Hex.to_bytes hex in
-  (* 32 bits here *)
-  let blake = Tezos_crypto.Block_hash.hash_bytes [binary] in
-  Tezos_crypto.Block_hash.to_b58check blake
-
 (* let check_block_hash req_str =
    (* let hex = Hex.of_string req_str in *)
    (* let hash_result = Tezos_crypto.Block_hash.of_hex_opt hex in *)
@@ -57,6 +50,6 @@ let () =
              |> Dream.html);
          Dream.get "/block_hash/check/:req" (fun request ->
              Dream.param request "req"
-             |> block_hash_converter_of_string
+             |> Lib.Block_hash.block_hash_converter_of_string
              |> Dream.html);
        ]

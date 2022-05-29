@@ -1,6 +1,6 @@
 {
     "ocaml.sandbox": {
         "kind": "opam",
-        "switch": "${workspaceFolder:tzTools}"
+        "switch": "${workspaceFolder:tztools}"
     }
 }
