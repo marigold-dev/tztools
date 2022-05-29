@@ -2,12 +2,6 @@
  (name tztools)
  (package tztools)
  (public_name tztools.exe)
- (libraries dream tyxml tyxml-jsx tezos-hacl-glue tezos-hacl-glue-unix tezos-crypto)
+ (libraries dream tyxml tezos-hacl-glue tezos-hacl-glue-unix tezos-crypto)
  (preprocess
-  (pps lwt_ppx tyxml-jsx)))
-
-(rule
- (targets template.ml)
- (deps template.eml.html)
- (action
-  (run dream_eml %{deps} --workspace %{workspace_root})))
+  (pps lwt_ppx)))

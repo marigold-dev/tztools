@@ -5,14 +5,12 @@ synopsis: "TzTools"
 description: "TzTool"
 maintainer: ["contact@marigold.dev"]
 depends: [
-  "dune" {>= "3.1" & build & >= "3.1.1"}
+  "dune" {>= "3.2" & build & >= "3.1.1"}
   "dream" {= "1.0.0~alpha4"}
-  "tyxml-jsx"
   "tyxml"
   "tezos-hacl-glue"
   "tezos-hacl-glue-unix"
   "tezos-crypto"
-  "reason" {>= "3.7.0"}
   "odoc" {with-doc}
 ]
 build: [

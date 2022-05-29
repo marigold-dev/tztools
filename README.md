@@ -7,7 +7,7 @@
 First, create a switch like so
 
 ```bash
-opam switch create . 4.12.1 --no-install
+opam switch create . 4.13.1 --no-install
 ```
 
 Then you can run

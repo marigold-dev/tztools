@@ -1,4 +1,4 @@
-(lang dune 3.1)
+(lang dune 3.2)
 
 (name tztools)
 
@@ -19,13 +19,10 @@
     (>= 3.1.1)))
   (dream
    (= 1.0.0~alpha4))
-  tyxml-jsx
   tyxml
   tezos-hacl-glue
   tezos-hacl-glue-unix
-  tezos-crypto
-  (reason
-   (>= 3.7.0))))
+  tezos-crypto))
 
 (package
  (name dev)
