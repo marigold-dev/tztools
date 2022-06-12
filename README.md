@@ -7,7 +7,7 @@
 First, create a switch like so
 
 ```bash
-opam switch create . 4.13.1 --no-install
+opam switch create . 4.14.0 --no-install
 ```
 
 Then you can run
@@ -20,4 +20,10 @@ and build the codebase with
 
 ```
 dune build
+```
+
+Run test:
+
+```
+dune build @runtest --force --no-buffer
 ```

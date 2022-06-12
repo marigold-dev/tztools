@@ -5,12 +5,20 @@ let test_block_hash () =
   in
   Alcotest.(check string)
     "block_hash_converter_of_string" expected
-    (Lib.Block_hash.block_hash_converter_of_string case)
+    (Lib.Block_hash.block_hash_of_string case)
+
+let test_blake2b () =
+  let expected =
+    "b2e06daa2bdd6616cd1d66e739a112353e5192a134684706454d0db6382e0161" in
+  let case = "1231" in
+  Alcotest.(check string)
+    "block_hash_converter_of_string" expected
+    (Lib.Blake2B.blake2b_hash_of_string case)
 
 let () =
   let open Alcotest in
   run "TzTool_tests"
     [
-      ( "Block_Hash",
-        [test_case "block_hash_converter_of_string" `Quick test_block_hash] );
+      ("Block_Hash", [test_case "converter_of_string" `Quick test_block_hash]);
+      ("Blake2b", [test_case "converter_of_string" `Quick test_blake2b]);
     ]

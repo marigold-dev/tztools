@@ -23,7 +23,8 @@
   tyxml
   tezos-hacl-glue
   tezos-hacl-glue-unix
-  tezos-crypto))
+  tezos-crypto
+  hexstring))
 
 (package
  (name dev)
