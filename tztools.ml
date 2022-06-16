@@ -9,7 +9,7 @@ let response_cors res =
     res
 
 let () =
-  Dream.run
+  Dream.run ~interface:"0.0.0.0" ~port:8080
   @@ Dream.logger
   @@ Dream.router
        [

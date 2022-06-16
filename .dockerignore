@@ -1,0 +1,10 @@
+_build*
+.vscode*
+.merlin
+README.md
+*.install
+*.swp
+_opam
+Dockerfile
+.dockerignore
+frontend*
