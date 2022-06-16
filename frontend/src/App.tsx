@@ -1,18 +1,24 @@
-import React, { createContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Route,
   Routes,
-  Link,
   useLocation
 } from "react-router-dom";
 
 import './App.css';
-import Home from './components/Home';
+import Base58 from './components/tools/Base58';
+import Blake2B from './components/tools/Blake2B';
+import BlockHash from './components/tools/BlockHash';
+import Home from './components/tools/Home';
 import Layout from './components/Layout';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import API from './components/tools/API';
 
 function App() {
 
   const location = useLocation();
+  
+  const queryClient = new QueryClient()
 
 
   useEffect(() => {
@@ -23,14 +29,17 @@ function App() {
 
   return (
     <div>
-      <Routes>
-
-        <Route path="/" element={<Layout />}>
-
-          <Route index element={<Home />} />
-          {/* <Route path="*" element={<NoMatch />} /> */}
-        </Route>
-      </Routes>
+     <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />}/>
+            <Route path="/base58" element={<Base58 />} />
+            <Route path="/blake2b" element={<Blake2B />} />
+            <Route path="/block_hash" element={<BlockHash />} />
+            <Route path="/api" element={<API />} />
+          </Route>
+        </Routes>
+     </QueryClientProvider>
     </div>
   );
 }
