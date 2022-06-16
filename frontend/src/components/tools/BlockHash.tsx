@@ -8,7 +8,7 @@ function BlockHash() {
 
   const onSetResult = async (text:string) => {
       axios.get<string>(
-        `${process.env["REACT_APP_BACKEND"]}/block_hash/hash/${text}`
+        `${process.env["REACT_APP_API"]}/block_hash/hash/${text}`
       ).then(res =>{
         setResult(res.data);
       })

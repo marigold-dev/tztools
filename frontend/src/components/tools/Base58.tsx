@@ -7,7 +7,7 @@ function Base58() {
 
   const onSetResult = async (text:string) => {
       axios.get<string>(
-        `${process.env["REACT_APP_BACKEND"]}/base58/encode/${text}`
+        `${process.env["REACT_APP_API"]}/base58/encode/${text}`
       ).then(res =>{
         setResult(res.data);
       })

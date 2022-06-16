@@ -7,7 +7,7 @@ function Blake2B() {
 
   const onSetResult = async (text:string) => {
       axios.get<string>(
-        `${process.env["REACT_APP_BACKEND"]}/blake2b/hash/${text}`
+        `${process.env["REACT_APP_API"]}/blake2b/hash/${text}`
       ).then(res =>{
         setResult(res.data);
       })
