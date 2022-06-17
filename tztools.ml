@@ -32,5 +32,7 @@ let () =
                  Dream.param request "req"
                  |> Lib.Blake2B.blake2b_hash_of_string
                  |> response_cors);
+             Dream.get "/health" (fun _ ->
+                 "Service is up and running." |> response_cors);
            ];
        ]
