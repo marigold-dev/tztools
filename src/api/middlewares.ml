@@ -4,4 +4,3 @@ let cors_middleware handler request =
       Dream.add_header response "Access-Control-Allow-Origin" "*";
       response)
     (handler request)
-
