@@ -1,3 +1,5 @@
+open Crypto
+
 let test_block_hash () =
   let expected = "BKiyb3usEE6nr1kwAP4UELUZmV4YzviKZxtq4m6kfNEHmdgEfFs" in
   let case =
@@ -5,7 +7,7 @@ let test_block_hash () =
   in
   Alcotest.(check string)
     "block_hash_converter_of_string" expected
-    (Lib.Block_hash.block_hash_of_string case)
+    (Block_hash.block_hash_of_string case)
 
 let test_blake2b () =
   let expected =
@@ -13,7 +15,7 @@ let test_blake2b () =
   let case = "1231" in
   Alcotest.(check string)
     "block_hash_converter_of_string" expected
-    (Lib.Blake2B.blake2b_hash_of_string case)
+    (Blake2B.blake2b_hash_of_string case)
 
 let () =
   let open Alcotest in

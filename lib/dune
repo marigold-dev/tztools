@@ -1,6 +1,0 @@
-(library
- (name lib)
- (public_name tztools.lib)
- (libraries tezos-hacl-glue tezos-hacl-glue-unix tezos-crypto hexstring)
- (preprocess
-  (pps lwt_ppx)))

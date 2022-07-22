@@ -1,0 +1,10 @@
+(library
+ (name crypto)
+ (libraries
+  tezos-hacl-glue
+  tezos-hacl-glue-unix
+  tezos-crypto
+  hexstring
+  data-encoding)
+ (preprocess
+  (pps lwt_ppx)))

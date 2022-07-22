@@ -1,0 +1,7 @@
+(executable
+ (public_name server)
+ (package tztools)
+ (name server)
+ (libraries api)
+ (preprocess
+  (pps lwt_ppx)))
