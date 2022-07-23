@@ -1,4 +1,4 @@
 (test
- (name tztools_test)
+ (name crypto_runner_test)
  (package tztools)
  (libraries alcotest crypto data-encoding))
