@@ -5,9 +5,9 @@ function Base58() {
   const [result, setResult] = useState("");
   const [input, setInput] = useState("");
 
-  const onSetResult = async (text:string) => {
+  const onSetResult = async (text:string, kind: 'encode' | 'decode') => {
       axios.get<string>(
-        `${process.env["REACT_APP_API"]}/base58/encode/${text}`
+        `${process.env["REACT_APP_API"]}/base58/${kind}/${text}`
       ).then(res =>{
         setResult(res.data);
       })
@@ -27,10 +27,10 @@ function Base58() {
           <textarea id="input" rows={4} onChange={(i) => setInput(i.target.value)} className="mt-8 block p-2.5 w-full h-2/5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your input..."></textarea>
           
           <span className='flex space-x-5'>
-            <button type="submit" onClick={() => onSetResult(input)} className="flex my-3 w-1/2 items-center py-2.5 px-4 text-xs font-medium text-center justify-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+            <button type="submit" onClick={() => onSetResult(input, 'encode')} className="flex my-3 w-1/2 items-center py-2.5 px-4 text-xs font-medium text-center justify-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
                 Encode
             </button>
-            <button type="submit" onClick={() => onSetResult(input)} className="flex my-3 w-1/2 items-center py-2.5 px-4 text-xs font-medium text-center justify-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+            <button type="submit" onClick={() => onSetResult(input, 'decode')} className="flex my-3 w-1/2 items-center py-2.5 px-4 text-xs font-medium text-center justify-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
                 Decode
             </button>
           </span>
