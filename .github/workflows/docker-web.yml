@@ -36,4 +36,4 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
           tags: |
             ghcr.io/marigold-dev/tztools-web:latest
-            ghcr.io/marigold-dev/tztools-web:${{ github.sha }}
+            ghcr.io/marigold-dev/tztools-web:latest-${{ github.sha::8 }}-${{ github.event.repository.updated_at}}
