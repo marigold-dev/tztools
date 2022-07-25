@@ -8,10 +8,10 @@ function API() {
           <h1 className="text-slate-900 dark:text-white mt-0 text-3xl font-medium tracking-tight">API</h1>
           <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">
               You can use our tools as API.</p>
-          <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">
-              TODO add API LINK here.</p>
-          <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg">
-              TODO add swagger here.</p>
+          {/* <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg"> */}
+          {/*     TODO add API LINK here.</p> */}
+          {/* <p className="text-slate-500 dark:text-slate-400 mt-2 text-lg"> */}
+          {/*     TODO add swagger here.</p> */}
         </div>
     </div>
   );
