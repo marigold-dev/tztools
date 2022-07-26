@@ -27,7 +27,7 @@ jobs:
       - name: Set outputs
         id: vars
         run: |
-          echo "::set-output name=date::$(date +%Y-%m-%d)"
+          echo "::set-output name=date::$(date +%s)"
           echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Build and push
