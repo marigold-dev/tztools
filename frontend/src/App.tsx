@@ -9,6 +9,7 @@ import './App.css';
 import Base58 from './components/tools/Base58';
 import Blake2B from './components/tools/Blake2B';
 import BlockHash from './components/tools/BlockHash';
+import EdDSA from './components/tools/EdDSA';
 import Home from './components/tools/Home';
 import Layout from './components/Layout';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -36,6 +37,7 @@ function App() {
             <Route path="/base58" element={<Base58 />} />
             <Route path="/blake2b" element={<Blake2B />} />
             <Route path="/block_hash" element={<BlockHash />} />
+            <Route path="/ed25519" element={<EdDSA />} />
             <Route path="/api" element={<API />} />
           </Route>
         </Routes>

@@ -10,6 +10,7 @@ function SideBar() {
                 <Item to="/block_hash">Tezos Block Hash</Item>
                 <ItemCategory>Encryption</ItemCategory>
                 <Item to="/blake2b">Blake2B 32bits</Item>
+                <Item to="/ed25519">ED25519</Item>
                 <ItemCategory>Encoding</ItemCategory>
                 <Item to="/base58">Base58</Item>
                 <ItemCategory>Integration</ItemCategory>
