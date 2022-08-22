@@ -43,8 +43,7 @@ let ed25519_verify request =
   |> Dream.respond
 
 let ed25519_public request =
-  Ed25519.secret_to_public
-    (Dream.query request "sk" |> Option.get)
+  Ed25519.secret_to_public (Dream.query request "sk" |> Option.get)
   |> Dream.respond
 
 (* let ed25519 request = *)

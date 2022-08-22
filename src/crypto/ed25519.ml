@@ -9,8 +9,6 @@ let verify edpk msg edsign =
   let signature = Hexstring.decode edsign |> Result.get_ok in
   Hacl_star.Hacl.Ed25519.verify ~pk ~msg ~signature
 
-let secret_to_public edsk  =
+let secret_to_public edsk =
   let sk = Hexstring.decode edsk |> Result.get_ok in
   Hacl_star.Hacl.Ed25519.secret_to_public ~sk |> Hexstring.encode
-
-
