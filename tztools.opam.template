@@ -1,0 +1,3 @@
+pin-depends: [
+  [ "openapi_router.dev" "git+https://github.com/marigold-dev/openapi-router" ]
+]

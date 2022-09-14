@@ -20,6 +20,7 @@
     (>= 3.1.1)))
   (dream
    (= 1.0.0~alpha4))
+  openapi_router
   tyxml
   tezos-hacl-glue
   tezos-hacl-glue-unix
