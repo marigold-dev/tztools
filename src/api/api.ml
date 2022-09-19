@@ -79,14 +79,189 @@ module OpenRouter = Openapi_router.Make (Config)
 let start () =
   OpenRouter.empty
   |> OpenRouter.description "Tezos libraries as an api"
-  |> OpenRouter.get "/base58/encode/:req" base58_encode
-  |> OpenRouter.get "/base58/decode/:req" base58_decode
-  |> OpenRouter.get "/block_hash/hash/:req" block_hash
-  |> OpenRouter.get "/blake2b/hash/:req" blake2b_hash
-  |> OpenRouter.get "/ed25519/secret_to_public/:req" ed25519_secret_to_public
-  |> OpenRouter.get "/ed25519/sign" ed25519_sign
-  |> OpenRouter.get "/ed25519/verify" ed25519_verify
-  |> OpenRouter.get "/ed25519/public" ed25519_public
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "req";
+                 in_ = Openapi_router.Spec.Path;
+                 description = Some "Value to encode in base58";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/base58/encode/:req" base58_encode
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "req";
+                 in_ = Openapi_router.Spec.Path;
+                 description = Some "Base58 encoded value to decode";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/base58/decode/:req" base58_decode
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "req";
+                 in_ = Openapi_router.Spec.Path;
+                 description = Some "Value to be hashed";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/block_hash/hash/:req" block_hash
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "req";
+                 in_ = Openapi_router.Spec.Path;
+                 description = Some "Value to hash with blake2b";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/blake2b/hash/:req" blake2b_hash
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "req";
+                 in_ = Openapi_router.Spec.Path;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/ed25519/secret_to_public/:req" ed25519_secret_to_public
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "sk";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "msg";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "Message to be signed";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/ed25519/sign" ed25519_sign
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "pk";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "message";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "signature";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/ed25519/verify" ed25519_verify
+  |> OpenRouter.get
+       ~parameters:
+         [
+           Openapi_router.Json_Schema.Obj
+             Openapi_router.Spec.
+               {
+                 name = "sk";
+                 in_ = Openapi_router.Spec.Query;
+                 description = Some "???";
+                 required = Some true;
+                 deprecated = Some false;
+                 allow_empty_value = Some false;
+                 style = None;
+                 schema = None;
+                 example = None;
+               };
+         ]
+       "/ed25519/public" ed25519_public
   |> OpenRouter.get ~description:"Is service up or not" "/health" health
   |> OpenRouter.build
   |> Middlewares.cors_middleware
